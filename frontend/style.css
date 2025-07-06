@@ -1,0 +1,59 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body style */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+  
+  /* Main content */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Section titles */
+  h2 {
+    color: #4a90e2;
+    margin-bottom: 15px;
+  }
+  
+  /* Project list */
+  ul {
+    list-style-type: none;
+  }
+  
+  li {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(74, 144, 226, 0.2);
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
