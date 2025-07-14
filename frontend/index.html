@@ -1,47 +1,98 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tech Girl Profile</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Welcome</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Load Font Awesome for power icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #0a192f;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #powerIcon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 80px;
+      color: #64ffda;
+      cursor: pointer;
+      z-index: 2;
+      transition: opacity 0.5s ease;
+    }
+
+    #videoContainer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      display: none;
+    }
+
+    #homeVideo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-    <script src="script.js"></script>
-  <header>
-    <h1>Hi, I'm Geeta Bhimsen Maharana — a Tech Girl 🚀</h1>
-    <p>Welcome to my Profile! Built with Java, Spring Boot, and AWS.</p>
-  </header>
 
-  <main>
-    <section>
-     
+  
+  <!-- Video -->
+  <div id="videoContainer">
+    <video id="homeVideo">
+      <source src="../photosandvideos/c1.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+<!-- Power Icon -->
+<div id="powerIcon"><i class="fas fa-power-off"></i></div>
 
-        <h2>Projects</h2>
-      <ul>
-        <li>Project 1: Coming Soon</li>
-        <li>Project 2: Coming Soon</li>
-      </ul>
-      <br>
-      <br>
-      
-      <h2>Contact Me</h2>
-      <ul>
-        <li>If you'd like to get in touch, please fill out the form below:</li>
-        <li>  
-                <a href="https://forms.gle/UVJ4HxEuTbG5jmib9" target="_blank">
-                 <button>Contact Now</button>
-        </a>
-    </li>
-</ul>
+  <script>
+    const powerIcon = document.getElementById("powerIcon");
+    const videoContainer = document.getElementById("videoContainer");
+    const video = document.getElementById("homeVideo");
 
-    </section>
-  </main>
+    powerIcon.addEventListener("click", () => {
+      powerIcon.style.opacity = "0";
 
-  <footer>
-    <p>&copy; 2025 Geeta. All rights reserved.</p>
-  </footer>
+      setTimeout(() => {
+        powerIcon.style.display = "none";
+        videoContainer.style.display = "block";
+        videoContainer.classList.add("fade-in");
+
+        // Try playing the video
+        video.play().catch(err => {
+          alert("Browser blocked autoplay. Click anywhere to play.");
+          document.body.addEventListener("click", () => video.play(), { once: true });
+        });
+      }, 500);
+    });
+
+    video.addEventListener("ended", () => {
+      window.location.href = "name.html";
+    });
+  </script>
+
 </body>
 </html>
-
